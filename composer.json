@@ -87,7 +87,7 @@
         "phpcs": "vendor/bin/phpcs --colors --no-cache --standard=PSR12 -s ./src",
         "phpunit": ["@xdebug","vendor/bin/phpunit --do-not-cache-result --colors=always --testdox --stop-on-failure"],
         "phpunit:migrate": "vendor/bin/phpunit --migrate-configuration",
-        "psalm": "tools/psalm --shepherd --stats --no-diff --no-cache ",
+        "psalm": "vendor/bin/psalm --shepherd --stats --no-diff --no-cache ",
         "psalm:home": [
             "@psalm:shepherd",
             "@psalm:security"
