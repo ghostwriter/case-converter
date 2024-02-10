@@ -1,11 +1,24 @@
 {
-    "name": "ghostwriter/wip",
-    "description": "Here be dragons",
+    "name": "ghostwriter/case-converter",
+    "description": "Convert strings from and to Ada, Camel, Cobol, Kebab, Lower, Macro, Pascal, Sentence, Snake, Title, Train, and Upper cases",
     "license": "BSD-3-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
-        "wip"
+        "case-converter",
+        "ada-case",
+        "camel-case",
+        "cobol-case",
+        "ghostwriter",
+        "kebab-case",
+        "lower-case",
+        "macro-case",
+        "pascal-case",
+        "sentence-case",
+        "snake-case",
+        "title-case",
+        "train-case",
+        "upper-case"
     ],
     "authors": [
         {
@@ -15,13 +28,13 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/ghostwriter/wip",
+    "homepage": "https://github.com/ghostwriter/case-converter",
     "support": {
-        "issues": "https://github.com/ghostwriter/wip/issues",
-        "forum": "https://github.com/ghostwriter/wip/discussions",
-        "source": "https://github.com/ghostwriter/wip",
-        "docs": "https://github.com/ghostwriter/wip",
-        "rss": "https://github.com/ghostwriter/wip/releases.atom"
+        "issues": "https://github.com/ghostwriter/case-converter/issues",
+        "forum": "https://github.com/ghostwriter/case-converter/discussions",
+        "source": "https://github.com/ghostwriter/case-converter",
+        "docs": "https://github.com/ghostwriter/case-converter",
+        "rss": "https://github.com/ghostwriter/case-converter/releases.atom"
     },
     "funding": [
         {
@@ -31,14 +44,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "ghostwriter/clock": "^2.0",
-        "ghostwriter/collection": "^1.4",
-        "ghostwriter/config": "^0.4",
-        "ghostwriter/container": "^2.0",
-        "ghostwriter/event-dispatcher": "^3.0",
-        "ghostwriter/json": "^2.0",
-        "ghostwriter/option": "^1.5",
-        "ghostwriter/result": "^1.3"
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
@@ -49,22 +55,14 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ghostwriter\\Wip\\": "src"
-        },
-        "files": [
-            "src/constants.php",
-            "src/functions.php"
-        ]
+            "Ghostwriter\\CaseConverter\\": "src"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ghostwriter\\Wip\\Tests\\": "tests"
+            "Ghostwriter\\CaseConverterTests\\": "tests"
         }
     },
-    "bin": [
-        "bin/console",
-        "bin/console.php"
-    ],
     "config": {
         "discard-changes": true,
         "optimize-autoloader": true,
