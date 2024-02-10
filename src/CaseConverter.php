@@ -105,37 +105,46 @@ final readonly class CaseConverter implements CaseConverterInterface
 
     private function glueDash(array $words, Closure $converter): string
     {
-        /** @var list<string> $words */
-        return implode('-', array_map($converter, $words));
+        return implode('-', $this->map($converter, $words));
     }
 
     private function glueDot(array $words, Closure $converter): string
     {
-        /** @var list<string> $words */
-        return implode('.', array_map($converter, $words));
+        return implode('.', $this->map($converter, $words));
     }
 
     private function glueSpace(array $words, Closure $converter): string
     {
-        /** @var list<string> $words */
-        return implode(' ', array_map($converter, $words));
+        return implode(' ', $this->map($converter, $words));
     }
 
     private function glueUnderscore(array $words, Closure $converter): string
     {
-        /** @var list<string> $words */
-        return implode('_', array_map($converter, $words));
+        return implode('_', $this->map($converter, $words));
     }
 
     private function glueUppercase(array $words, Closure $converter): string
     {
-        /** @var list<string> $words */
-        return implode('', array_map($converter, $words));
+        return implode('', $this->map($converter, $words));
     }
 
     private function isUppercaseWord(string $string): bool
     {
         return preg_match('#^\p{Lu}+$#u', $string) === 1;
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function map(Closure $converter, array $words): array
+    {
+        /**
+         * @var list<string>           $words
+         * @var Closure(string):string $converter
+         *
+         * @return list<string>
+         */
+        return array_map($converter, $words);
     }
 
     private function split(string $string): array
