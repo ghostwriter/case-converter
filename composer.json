@@ -104,11 +104,6 @@
         "psalm:baseline": "@psalm --no-diff --set-baseline=psalm-baseline.xml",
         "psalm:dry-run": "@psalm:alter --issues=all --dry-run",
         "psalm:fix": "@psalm:alter --issues=MissingReturnType",
-        "psalm:home": [
-            "@psalm:shepherd",
-            "@psalm:security"
-        ],
-        "psalm:missing-return-types": "@psalm --alter --issues=MissingReturnType",
         "psalm:security": "@psalm --no-diff --taint-analysis",
         "psalm:shepherd": "@psalm --no-diff --shepherd --stats",
         "rector": "vendor/bin/rector process --no-ansi --no-interaction --clear-cache",
