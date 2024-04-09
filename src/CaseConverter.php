@@ -8,12 +8,6 @@ use Closure;
 use Ghostwriter\CaseConverter\Exception\FailedToSplitStringException;
 use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
 
-use const MB_CASE_LOWER;
-use const MB_CASE_TITLE;
-use const MB_CASE_UPPER;
-use const PREG_SPLIT_DELIM_CAPTURE;
-use const PREG_SPLIT_NO_EMPTY;
-
 use function array_map;
 use function implode;
 use function lcfirst;
@@ -22,6 +16,12 @@ use function preg_match;
 use function preg_split;
 use function str_contains;
 use function ucfirst;
+
+use const MB_CASE_LOWER;
+use const MB_CASE_TITLE;
+use const MB_CASE_UPPER;
+use const PREG_SPLIT_DELIM_CAPTURE;
+use const PREG_SPLIT_NO_EMPTY;
 
 final readonly class CaseConverter implements CaseConverterInterface
 {
