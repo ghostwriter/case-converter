@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(FailedToSplitStringException::class)]
 final class FailedToSplitStringExceptionTest extends TestCase
 {
-    final public function testInstanceOfCaseConverterExceptionInterface(): void
+    public function testInstanceOfCaseConverterExceptionInterface(): void
     {
         self::assertInstanceOf(CaseConverterExceptionInterface::class, new FailedToSplitStringException());
     }
