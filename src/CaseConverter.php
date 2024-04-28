@@ -23,6 +23,11 @@ use const MB_CASE_UPPER;
 use const PREG_SPLIT_DELIM_CAPTURE;
 use const PREG_SPLIT_NO_EMPTY;
 
+/**
+ * @psalm-immutable
+ *
+ * @psalm-pure
+ */
 final readonly class CaseConverter implements CaseConverterInterface
 {
     private Closure $lower;
@@ -128,6 +133,9 @@ final readonly class CaseConverter implements CaseConverterInterface
         return implode('', $this->map($converter, $words));
     }
 
+    /**
+     * @psalm-pure
+     */
     private function isUppercaseWord(string $string): bool
     {
         return preg_match('#^\p{Lu}+$#u', $string) === 1;
@@ -135,6 +143,8 @@ final readonly class CaseConverter implements CaseConverterInterface
 
     /**
      * @return list<string>
+     *
+     * @psalm-pure
      */
     private function map(Closure $converter, array $words): array
     {
@@ -197,6 +207,9 @@ final readonly class CaseConverter implements CaseConverterInterface
         return $this->words($string, '#(?=\p{Lu}{1})#u');
     }
 
+    /**
+     * @psalm-pure
+     */
     private function words(string $string, string $pattern): array
     {
         /**
