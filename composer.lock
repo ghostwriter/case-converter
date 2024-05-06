@@ -318,16 +318,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.7.4",
+            "version": "2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "a625e50598e12171d3f60b1149eb530690c43474"
+                "reference": "fabd995783b633829fd4280e272284b39b6ae702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/a625e50598e12171d3f60b1149eb530690c43474",
-                "reference": "a625e50598e12171d3f60b1149eb530690c43474",
+                "url": "https://api.github.com/repos/composer/composer/zipball/fabd995783b633829fd4280e272284b39b6ae702",
+                "reference": "fabd995783b633829fd4280e272284b39b6ae702",
                 "shasum": ""
             },
             "require": {
@@ -412,7 +412,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.7.4"
+                "source": "https://github.com/composer/composer/tree/2.7.6"
             },
             "funding": [
                 {
@@ -428,7 +428,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-22T19:17:03+00:00"
+            "time": "2024-05-04T21:03:15+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -1049,22 +1049,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "dc9a84ca6dc90669203bd39d2fa2edbb7dc4bedb"
+                "reference": "f8ca4608ca61c001638a3b615f533ef55cccdee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/dc9a84ca6dc90669203bd39d2fa2edbb7dc4bedb",
-                "reference": "dc9a84ca6dc90669203bd39d2fa2edbb7dc4bedb",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/f8ca4608ca61c001638a3b615f533ef55cccdee9",
+                "reference": "f8ca4608ca61c001638a3b615f533ef55cccdee9",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^2.6.0",
                 "composer-runtime-api": "^2.2.2",
-                "composer/composer": "^2.7.4",
+                "composer/composer": "^2.7.6",
                 "mockery/mockery": "^1.6.11",
                 "php": "^8.2",
                 "phpunit/phpunit": "^10.5.20",
-                "vimeo/psalm": "^5.23.1"
+                "vimeo/psalm": "^5.24.0"
             },
             "conflict": {
                 "vimeo/psalm": "<4.30"
@@ -1118,7 +1118,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-02T15:08:04+00:00"
+            "time": "2024-05-06T13:57:46+00:00"
         },
         {
             "name": "ghostwriter/psalm-plugin",
@@ -1859,16 +1859,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.28.0",
+            "version": "1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb"
+                "reference": "536889f2b340489d328f5ffb7b02bb6b183ddedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
-                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/536889f2b340489d328f5ffb7b02bb6b183ddedc",
+                "reference": "536889f2b340489d328f5ffb7b02bb6b183ddedc",
                 "shasum": ""
             },
             "require": {
@@ -1900,9 +1900,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.28.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.29.0"
             },
-            "time": "2024-04-03T18:51:33+00:00"
+            "time": "2024-05-06T12:04:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3753,6 +3753,73 @@
             "time": "2024-04-18T09:29:19+00:00"
         },
         {
+            "name": "symfony/deprecation-contracts",
+            "version": "v3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.5-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-04-18T09:32:20+00:00"
+        },
+        {
             "name": "symfony/filesystem",
             "version": "v7.0.7",
             "source": {
@@ -4493,21 +4560,22 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e"
+                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/11bbf19a0fb7b36345861e85c5768844c552906e",
-                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
+                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
-                "psr/container": "^1.1|^2.0"
+                "psr/container": "^1.1|^2.0",
+                "symfony/deprecation-contracts": "^2.5|^3"
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -4515,7 +4583,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -4555,7 +4623,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.4.2"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -4571,7 +4639,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-19T21:51:00+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/string",
