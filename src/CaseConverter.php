@@ -171,6 +171,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * @param list<string>                $words
      * @param pure-Closure(string):string $converter
      */
     private function glueDash(array $words, Closure $converter): string
@@ -178,8 +179,8 @@ final readonly class CaseConverter implements CaseConverterInterface
         return implode('-', $this->map($converter, $words));
     }
 
-
     /**
+     * @param list<string>                $words
      * @param pure-Closure(string):string $converter
      */
     private function glueDot(array $words, Closure $converter): string
@@ -188,6 +189,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * @param list<string>                $words
      * @param pure-Closure(string):string $converter
      */
     private function glueSpace(array $words, Closure $converter): string
@@ -196,6 +198,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * @param list<string>                $words
      * @param pure-Closure(string):string $converter
      */
     private function glueUnderscore(array $words, Closure $converter): string
@@ -204,6 +207,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * @param list<string>                $words
      * @param pure-Closure(string):string $converter
      */
     private function glueUppercase(array $words, Closure $converter): string
@@ -221,6 +225,7 @@ final readonly class CaseConverter implements CaseConverterInterface
 
     /**
      * @param pure-Closure(string):string $converter
+     * @param list<string>                $words
      *
      * @return list<string>
      */
