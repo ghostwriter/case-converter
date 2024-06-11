@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\CaseConverterTests\Unit;
+namespace Tests\Unit;
 
 use Generator;
 use Ghostwriter\CaseConverter\CaseConverter;
