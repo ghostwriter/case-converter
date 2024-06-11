@@ -47,8 +47,7 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/psalm-plugin": "^0.2 || ^1.0"
+        "ghostwriter/coding-standard": "dev-main"
     },
     "replace": {},
     "minimum-stability": "stable",
@@ -60,7 +59,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Ghostwriter\\CaseConverterTests\\": "tests",
             "Tests\\": "tests"
         }
     },
