@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\CaseConverterTests\Unit\Exception;
+namespace Tests\Unit\Exception;
 
 use Ghostwriter\CaseConverter\Exception\FailedToSplitStringException;
 use Ghostwriter\CaseConverter\Interface\Exception\CaseConverterExceptionInterface;
