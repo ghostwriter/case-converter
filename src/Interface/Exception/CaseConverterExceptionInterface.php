@@ -6,4 +6,6 @@ namespace Ghostwriter\CaseConverter\Interface\Exception;
 
 use Throwable;
 
-interface CaseConverterExceptionInterface extends Throwable {}
+interface CaseConverterExceptionInterface extends Throwable
+{
+}
