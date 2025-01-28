@@ -3,8 +3,6 @@
 [![Compliance](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/case-converter?color=8892bf)](https://www.php.net/supported-versions)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
-[![Code Coverage](https://codecov.io/gh/ghostwriter/case-converter/branch/main/graph/badge.svg)](https://codecov.io/gh/ghostwriter/case-converter)
-[![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/case-converter)](https://packagist.org/packages/ghostwriter/case-converter)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/case-converter?color=blue)](https://packagist.org/packages/ghostwriter/case-converter)
 
 Convert strings from and to `AdaCase`, `CamelCase`, `CobolCase`, `KebabCase`, `Lowercase`, `MacroCase`, `PascalCase`, `SentenceCase`, `SnakeCase`, `TitleCase`, `TrainCase`, and `Uppercase`.
