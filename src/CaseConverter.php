@@ -24,25 +24,20 @@ use function preg_split;
 use function str_contains;
 use function ucfirst;
 
-/**
- * @psalm-immutable
- *
- * @psalm-pure
- */
 final readonly class CaseConverter implements CaseConverterInterface
 {
     /**
-     * @var pure-Closure(string):string
+     * @var Closure(string):string
      */
     private Closure $lower;
 
     /**
-     * @var pure-Closure(string):string
+     * @var Closure(string):string
      */
     private Closure $title;
 
     /**
-     * @var pure-Closure(string):string
+     * @var Closure(string):string
      */
     private Closure $upper;
 
@@ -53,7 +48,14 @@ final readonly class CaseConverter implements CaseConverterInterface
         $this->title = static fn (string $word): string => mb_convert_case($word, MB_CASE_TITLE, 'UTF-8');
     }
 
+    public static function new(): self
+    {
+        return new self();
+    }
+
     /**
+     * eg. The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -63,6 +65,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. theQuickBrownFoxJumpsOverTheLazyDog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -72,6 +76,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -81,6 +87,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. the.quick.brown.fox.jumps.over.the.lazy.dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -90,6 +98,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. the-quick-brown-fox-jumps-over-the-lazy-dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -99,6 +109,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. the quick brown fox jumps over the lazy dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -108,6 +120,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -117,6 +131,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. TheQuickBrownFoxJumpsOverTheLazyDog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -126,6 +142,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. The quick brown fox jumps over the lazy dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -135,6 +153,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. the_quick_brown_fox_jumps_over_the_lazy_dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -144,6 +164,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. The Quick Brown Fox Jumps Over The Lazy Dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -153,6 +175,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. The-Quick-Brown-Fox-Jumps-Over-The-Lazy-Dog.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -162,6 +186,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
+     * eg. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+     *
      * @throws FailedToSplitStringException
      */
     #[Override]
@@ -171,8 +197,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
-     * @param list<string>                $words
-     * @param pure-Closure(string):string $converter
+     * @param list<string>           $words
+     * @param Closure(string):string $converter
      */
     private function glueDash(array $words, Closure $converter): string
     {
@@ -180,8 +206,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
-     * @param list<string>                $words
-     * @param pure-Closure(string):string $converter
+     * @param list<string>           $words
+     * @param Closure(string):string $converter
      */
     private function glueDot(array $words, Closure $converter): string
     {
@@ -189,8 +215,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
-     * @param list<string>                $words
-     * @param pure-Closure(string):string $converter
+     * @param list<string>           $words
+     * @param Closure(string):string $converter
      */
     private function glueSpace(array $words, Closure $converter): string
     {
@@ -198,8 +224,8 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
-     * @param list<string>                $words
-     * @param pure-Closure(string):string $converter
+     * @param list<string>           $words
+     * @param Closure(string):string $converter
      */
     private function glueUnderscore(array $words, Closure $converter): string
     {
@@ -207,33 +233,30 @@ final readonly class CaseConverter implements CaseConverterInterface
     }
 
     /**
-     * @param list<string>                $words
-     * @param pure-Closure(string):string $converter
+     * @param list<string>           $words
+     * @param Closure(string):string $converter
      */
     private function glueUppercase(array $words, Closure $converter): string
     {
         return implode('', $this->map($converter, $words));
     }
 
-    /**
-     * @psalm-pure
-     */
     private function isUppercaseWord(string $string): bool
     {
         return preg_match('#^\p{Lu}+$#u', $string) === 1;
     }
 
     /**
-     * @param pure-Closure(string):string $converter
-     * @param list<string>                $words
+     * @param Closure(string):string $converter
+     * @param list<string>           $words
      *
      * @return list<string>
      */
     private function map(Closure $converter, array $words): array
     {
         /**
-         * @var pure-Closure(string):string $converter
-         * @var list<string>                $words
+         * @var Closure(string):string $converter
+         * @var list<string>           $words
          *
          * @return list<string>
          */
@@ -247,27 +270,14 @@ final readonly class CaseConverter implements CaseConverterInterface
      */
     private function split(string $string): array
     {
-        if (str_contains($string, '_')) {
-            return $this->splitUnderscore($string);
-        }
-
-        if (str_contains($string, '-')) {
-            return $this->splitDash($string);
-        }
-
-        if (str_contains($string, ' ')) {
-            return $this->splitSpace($string);
-        }
-
-        if (str_contains($string, '.')) {
-            return $this->splitDot($string);
-        }
-
-        if ($this->isUppercaseWord($string)) {
-            return $this->splitUnderscore($string);
-        }
-
-        return $this->splitUppercase($string);
+        return match (true) {
+            str_contains($string, '_') => $this->splitUnderscore($string),
+            str_contains($string, '-') => $this->splitDash($string),
+            str_contains($string, ' ') => $this->splitSpace($string),
+            str_contains($string, '.') => $this->splitDot($string),
+            $this->isUppercaseWord($string) => $this->splitUnderscore($string),
+            default => $this->splitUppercase($string),
+        };
     }
 
     /**
@@ -317,7 +327,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      */
     private function splitUppercase(string $string): array
     {
-        return $this->words($string, '#(?=\p{Lu}{1})#u');
+        return $this->words($string, '#(?=\p{Lu})#u');
     }
 
     /**
@@ -333,16 +343,11 @@ final readonly class CaseConverter implements CaseConverterInterface
          */
         $words = preg_split($pattern, $string, 0, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
-        if ($words === false) {
+        if (false === $words) {
             throw new FailedToSplitStringException($string . ' | ' . $pattern);
         }
 
         /** @return list<string> */
         return $words;
-    }
-
-    public static function new(): self
-    {
-        return new self();
     }
 }

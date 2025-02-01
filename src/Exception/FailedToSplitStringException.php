@@ -7,6 +7,4 @@ namespace Ghostwriter\CaseConverter\Exception;
 use Ghostwriter\CaseConverter\Interface\Exception\CaseConverterExceptionInterface;
 use RuntimeException;
 
-final class FailedToSplitStringException extends RuntimeException implements CaseConverterExceptionInterface
-{
-}
+final class FailedToSplitStringException extends RuntimeException implements CaseConverterExceptionInterface {}
