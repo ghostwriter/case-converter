@@ -1,12 +1,8 @@
 # CaseConverter
 
-[![Compliance](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
-[![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/case-converter?color=8892bf)](https://www.php.net/supported-versions)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
-[![Code Coverage](https://codecov.io/gh/ghostwriter/case-converter/branch/main/graph/badge.svg)](https://codecov.io/gh/ghostwriter/case-converter)
-[![Type Coverage](https://shepherd.dev/github/ghostwriter/case-converter/coverage.svg)](https://shepherd.dev/github/ghostwriter/case-converter)
-[![Psalm Level](https://shepherd.dev/github/ghostwriter/case-converter/level.svg)](https://psalm.dev/docs/running_psalm/error_levels)
-[![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/case-converter)](https://packagist.org/packages/ghostwriter/case-converter)
+[![Automation](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
+[![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/case-converter?color=8892bf)](https://www.php.net/supported-versions)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/case-converter?color=blue)](https://packagist.org/packages/ghostwriter/case-converter)
 
 Convert strings from and to `AdaCase`, `CamelCase`, `CobolCase`, `KebabCase`, `Lowercase`, `MacroCase`, `PascalCase`, `SentenceCase`, `SnakeCase`, `TitleCase`, `TrainCase`, and `Uppercase`.
