@@ -51,9 +51,7 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "ghostwriter/coding-standard": "@dev",
-        "ghostwriter/psalm-plugin": "@dev",
-        "ghostwriter/testify": "@dev"
+        "ghostwriter/coding-standard": "@dev"
     },
     "replace": {},
     "minimum-stability": "stable",
