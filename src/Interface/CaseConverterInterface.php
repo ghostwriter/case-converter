@@ -6,29 +6,29 @@ namespace Ghostwriter\CaseConverter\Interface;
 
 interface CaseConverterInterface
 {
-    public function adaCase(string $string): string;
+    public function toAdaCase(string $string): string;
 
-    public function camelCase(string $string): string;
+    public function toCamelCase(string $string): string;
 
-    public function cobolCase(string $string): string;
+    public function toCobolCase(string $string): string;
 
-    public function dotCase(string $string): string;
+    public function toDotCase(string $string): string;
 
-    public function kebabCase(string $string): string;
+    public function toKebabCase(string $string): string;
 
-    public function lowerCase(string $string): string;
+    public function toLowerCase(string $string): string;
 
-    public function macroCase(string $string): string;
+    public function toMacroCase(string $string): string;
 
-    public function pascalCase(string $string): string;
+    public function toPascalCase(string $string): string;
 
-    public function sentenceCase(string $string): string;
+    public function toSentenceCase(string $string): string;
 
-    public function snakeCase(string $string): string;
+    public function toSnakeCase(string $string): string;
 
-    public function titleCase(string $string): string;
+    public function toTitleCase(string $string): string;
 
-    public function trainCase(string $string): string;
+    public function toTrainCase(string $string): string;
 
-    public function upperCase(string $string): string;
+    public function toUpperCase(string $string): string;
 }
