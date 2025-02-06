@@ -59,7 +59,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function adaCase(string $string): string
+    public function toAdaCase(string $string): string
     {
         return $this->glueUnderscore($this->split($string), $this->title);
     }
@@ -70,7 +70,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function camelCase(string $string): string
+    public function toCamelCase(string $string): string
     {
         return lcfirst($this->glueUppercase($this->split($string), $this->title));
     }
@@ -81,7 +81,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function cobolCase(string $string): string
+    public function toCobolCase(string $string): string
     {
         return $this->glueDash($this->split($string), $this->upper);
     }
@@ -92,7 +92,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function dotCase(string $string): string
+    public function toDotCase(string $string): string
     {
         return $this->glueDot($this->split($string), $this->lower);
     }
@@ -103,7 +103,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function kebabCase(string $string): string
+    public function toKebabCase(string $string): string
     {
         return $this->glueDash($this->split($string), $this->lower);
     }
@@ -114,7 +114,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function lowerCase(string $string): string
+    public function toLowerCase(string $string): string
     {
         return $this->glueSpace($this->split($string), $this->lower);
     }
@@ -125,7 +125,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function macroCase(string $string): string
+    public function toMacroCase(string $string): string
     {
         return $this->glueUnderscore($this->split($string), $this->upper);
     }
@@ -136,7 +136,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function pascalCase(string $string): string
+    public function toPascalCase(string $string): string
     {
         return $this->glueUppercase($this->split($string), $this->title);
     }
@@ -147,7 +147,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function sentenceCase(string $string): string
+    public function toSentenceCase(string $string): string
     {
         return ucfirst($this->glueSpace($this->split($string), $this->lower));
     }
@@ -158,7 +158,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function snakeCase(string $string): string
+    public function toSnakeCase(string $string): string
     {
         return $this->glueUnderscore($this->split($string), $this->lower);
     }
@@ -169,7 +169,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function titleCase(string $string): string
+    public function toTitleCase(string $string): string
     {
         return $this->glueSpace($this->split($string), $this->title);
     }
@@ -180,7 +180,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function trainCase(string $string): string
+    public function toTrainCase(string $string): string
     {
         return $this->glueDash($this->split($string), $this->title);
     }
@@ -191,7 +191,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      * @throws FailedToSplitStringException
      */
     #[Override]
-    public function upperCase(string $string): string
+    public function toUpperCase(string $string): string
     {
         return $this->glueSpace($this->split($string), $this->upper);
     }
