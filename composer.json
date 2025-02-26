@@ -47,8 +47,10 @@
         "#StandWithUkraine"
     ],
     "require": {
-        "php": ">=8.4",
-        "ext-mbstring": "*",
+        "php": "^8.4",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
         "ghostwriter/coding-standard": "dev-main"
     },
     "replace": {},
