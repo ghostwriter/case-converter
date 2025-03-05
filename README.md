@@ -1,4 +1,4 @@
-# CaseConverter
+# Case Converter
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Automation](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
