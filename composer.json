@@ -1,7 +1,7 @@
 {
     "name": "ghostwriter/case-converter",
     "description": "Convert strings from and to AdaCase, CamelCase, CobolCase, KebabCase, Lowercase, MacroCase, PascalCase, SentenceCase, SnakeCase, TitleCase, TrainCase, and Uppercase",
-    "license": "BSD-3-Clause",
+    "license": "BSD-4-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
