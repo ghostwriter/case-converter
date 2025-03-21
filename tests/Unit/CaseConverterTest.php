@@ -6,11 +6,15 @@ namespace Tests\Unit;
 
 use Generator;
 use Ghostwriter\CaseConverter\CaseConverter;
+use Ghostwriter\CaseConverter\Container\CaseConverterServiceProvider;
+use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
+use Ghostwriter\Container\Container;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(CaseConverter::class)]
+#[CoversClass(CaseConverterServiceProvider::class)]
 final class CaseConverterTest extends TestCase
 {
     private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
@@ -64,7 +68,15 @@ final class CaseConverterTest extends TestCase
     {
         parent::setUp();
 
-        $this->caseConverter = CaseConverter::new();
+        $this->container = Container::getInstance();
+        $this->container->provide(CaseConverterServiceProvider::class);
+        $this->caseConverter = $this->container->get(CaseConverterInterface::class);
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+        $this->container->clear(); // Clear the container to avoid side effects between tests
     }
 
     #[DataProvider('dataProviderFrom')]

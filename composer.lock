@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c793ab085ece0897f8c4388e8d7f3a8e",
+    "content-hash": "a76bf104d467b7c9e288ee02b7faff24",
     "packages": [],
     "packages-dev": [
         {
@@ -1842,12 +1842,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "1df6ffaf57f837cd0179f306ae32c91aa4a9165a"
+                "reference": "cc4deb6026a5ec6da496af28c9eb4a43431063f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/1df6ffaf57f837cd0179f306ae32c91aa4a9165a",
-                "reference": "1df6ffaf57f837cd0179f306ae32c91aa4a9165a",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/cc4deb6026a5ec6da496af28c9eb4a43431063f4",
+                "reference": "cc4deb6026a5ec6da496af28c9eb4a43431063f4",
                 "shasum": ""
             },
             "require": {
@@ -1992,7 +1992,69 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-20T02:37:13+00:00"
+            "time": "2025-03-20T20:45:41+00:00"
+        },
+        {
+            "name": "ghostwriter/container",
+            "version": "5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ghostwriter/container.git",
+                "reference": "e77a71185922b5a67a0219de6acce2d5be8496f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ghostwriter/container/zipball/e77a71185922b5a67a0219de6acce2d5be8496f2",
+                "reference": "e77a71185922b5a67a0219de6acce2d5be8496f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.4"
+            },
+            "provide": {
+                "psr/container-implementation": "*"
+            },
+            "require-dev": {
+                "ghostwriter/coding-standard": "dev-main",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ghostwriter\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nathanael Esayeas",
+                    "email": "nathanael.esayeas@protonmail.com",
+                    "homepage": "https://github.com/ghostwriter",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides an extensible Dependency Injection Service Container for Automated Object Composition, Interception, and Lifetime Management.",
+            "homepage": "https://github.com/ghostwriter/container",
+            "keywords": [
+                "container",
+                "ghostwriter"
+            ],
+            "support": {
+                "issues": "https://github.com/ghostwriter/container/issues",
+                "rss": "https://github.com/ghostwriter/container/releases.atom",
+                "security": "https://github.com/ghostwriter/container/security/advisories/new",
+                "source": "https://github.com/ghostwriter/container"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/ghostwriter",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-18T19:43:29+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -6801,16 +6863,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "6.9.1",
+            "version": "6.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "81c8a77c0793d450fee40265cfe68891df11d505"
+                "reference": "e052de4275fb6cdbfedfef1d883a7e90732ea609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/81c8a77c0793d450fee40265cfe68891df11d505",
-                "reference": "81c8a77c0793d450fee40265cfe68891df11d505",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/e052de4275fb6cdbfedfef1d883a7e90732ea609",
+                "reference": "e052de4275fb6cdbfedfef1d883a7e90732ea609",
                 "shasum": ""
             },
             "require": {
@@ -6915,7 +6977,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2025-03-17T09:40:52+00:00"
+            "time": "2025-03-20T13:21:28+00:00"
         },
         {
             "name": "webmozart/assert",
