@@ -6,13 +6,21 @@ namespace Tests\Unit;
 
 use Generator;
 use Ghostwriter\CaseConverter\CaseConverter;
+use Ghostwriter\CaseConverter\Container\CaseConverterServiceProvider;
+use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
+use Ghostwriter\Container\Container;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(CaseConverter::class)]
+#[CoversClass(CaseConverterServiceProvider::class)]
 final class CaseConverterTest extends TestCase
 {
+    private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
+
+    private const string CAMEL_CASE = 'theQuickBrownFoxJumpsOverTheLazyDog';
+
     private const array CASES = [
         self::ADA_CASE,
         self::CAMEL_CASE,
@@ -28,12 +36,6 @@ final class CaseConverterTest extends TestCase
         self::TRAIN_CASE,
         self::UPPER_CASE,
     ];
-
-    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The quick brown fox jumps over the lazy dog';
-
-    private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
-
-    private const string CAMEL_CASE = 'theQuickBrownFoxJumpsOverTheLazyDog';
 
     private const string COBOL_CASE = 'THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG';
 
@@ -51,6 +53,8 @@ final class CaseConverterTest extends TestCase
 
     private const string SNAKE_CASE = 'the_quick_brown_fox_jumps_over_the_lazy_dog';
 
+    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The quick brown fox jumps over the lazy dog';
+
     private const string TITLE_CASE = 'The Quick Brown Fox Jumps Over The Lazy Dog';
 
     private const string TRAIN_CASE = 'The-Quick-Brown-Fox-Jumps-Over-The-Lazy-Dog';
@@ -63,7 +67,15 @@ final class CaseConverterTest extends TestCase
     {
         parent::setUp();
 
-        $this->caseConverter = CaseConverter::new();
+        $this->container = Container::getInstance();
+        $this->container->provide(CaseConverterServiceProvider::class);
+        $this->caseConverter = $this->container->get(CaseConverterInterface::class);
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+        $this->container->clear(); // Clear the container to avoid side effects between tests
     }
 
     #[DataProvider('dataProviderFrom')]
