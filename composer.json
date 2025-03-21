@@ -1,7 +1,7 @@
 {
     "name": "ghostwriter/case-converter",
     "description": "Convert strings from and to AdaCase, CamelCase, CobolCase, KebabCase, Lowercase, MacroCase, PascalCase, SentenceCase, SnakeCase, TitleCase, TrainCase, and Uppercase",
-    "license": "BSD-3-Clause",
+    "license": "BSD-4-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
@@ -47,11 +47,12 @@
         "#StandWithUkraine"
     ],
     "require": {
-        "php": ">=8.4",
+        "php": "^8.4",
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "ghostwriter/coding-standard": "dev-main"
+        "ghostwriter/coding-standard": "dev-main",
+        "ghostwriter/container": "^5.0.1"
     },
     "replace": {},
     "minimum-stability": "stable",
@@ -63,20 +64,21 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Unit\\": "tests/unit/"
+            "Tests\\Unit\\": "tests/Unit/"
         },
         "files": [
             "tests/bootstrap.php"
         ],
         "exclude-from-classmap": [
-            "tests/fixture/"
+            "tests/Fixture/"
         ]
     },
     "config": {
         "allow-plugins": {
-            "ghostwriter/coding-standard": true
+            "ghostwriter/coding-standard": true,
+            "infection/extension-installer": true
         },
-        "bump-after-update": true,
+        "bump-after-update": false,
         "classmap-authoritative": false,
         "discard-changes": true,
         "optimize-autoloader": true,
