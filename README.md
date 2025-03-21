@@ -1,4 +1,4 @@
-# CaseConverter
+# Case Converter
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Automation](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
@@ -24,37 +24,50 @@ You can also star (🌟) this repo to find it easier later.
 ```php
 use GhostWriter\CaseConverter\CaseConverter;
 
-$string = 'The quick brown fox jumps over the lazy dog';
+$string = 'The quick, brown fox jumps over the lazy dog.';
 
 // $caseConverter = new CaseConverter();
 // or
 $caseConverter = CaseConverter::new();
 
-$caseConverter->toAdaCase($string); // The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog
+// The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog
+$caseConverter->toAdaCase($string); 
 
-$caseConverter->toCamelCase($string); // theQuickBrownFoxJumpsOverTheLazyDog
+// theQuickBrownFoxJumpsOverTheLazyDog
+$caseConverter->toCamelCase($string);
 
-$caseConverter->toCobolCase($string); // THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG
+// THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG
+$caseConverter->toCobolCase($string);
 
-$caseConverter->toDotCase($string); // the.quick.brown.fox.jumps.over.the.lazy.dog
+// the.quick.brown.fox.jumps.over.the.lazy.dog
+$caseConverter->toDotCase($string);
 
-$caseConverter->toKebabCase($string); // the-quick-brown-fox-jumps-over-the-lazy-dog
+// the-quick-brown-fox-jumps-over-the-lazy-dog
+$caseConverter->toKebabCase($string);
 
-$caseConverter->toLowerCase($string); // the quick brown fox jumps over the lazy dog
+// the quick brown fox jumps over the lazy dog
+$caseConverter->toLowerCase($string);
 
-$caseConverter->toMacroCase($string); // THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+// THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+$caseConverter->toMacroCase($string);
 
-$caseConverter->toPascalCase($string); // TheQuickBrownFoxJumpsOverTheLazyDog
+// TheQuickBrownFoxJumpsOverTheLazyDog
+$caseConverter->toPascalCase($string);
 
-$caseConverter->toSentenceCase($string); // The quick brown fox jumps over the lazy dog
+// The quick brown fox jumps over the lazy dog
+$caseConverter->toSentenceCase($string);
 
-$caseConverter->toSnakeCase($string); // the_quick_brown_fox_jumps_over_the_lazy_dog
+// the_quick_brown_fox_jumps_over_the_lazy_dog
+$caseConverter->toSnakeCase($string);
 
-$caseConverter->toTitleCase($string); // The Quick Brown Fox Jumps Over The Lazy Dog
+// The Quick Brown Fox Jumps Over The Lazy Dog
+$caseConverter->toTitleCase($string);
 
-$caseConverter->toTrainCase($string); // The-Quick-Brown-Fox-Jumps-Over-The-Lazy-Dog
+// The-Quick-Brown-Fox-Jumps-Over-The-Lazy-Dog
+$caseConverter->toTrainCase($string);
 
-$caseConverter->toUpperCase($string); // THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+// THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+$caseConverter->toUpperCase($string);
 ```
 
 ### Credits
