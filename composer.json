@@ -51,7 +51,8 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "ghostwriter/coding-standard": "dev-main"
+        "ghostwriter/coding-standard": "dev-main",
+        "ghostwriter/container": "^5.0.1"
     },
     "replace": {},
     "minimum-stability": "stable",
