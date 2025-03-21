@@ -52,7 +52,7 @@
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/container": "^5.0.1"
+        "ghostwriter/container": "~5.0.1"
     },
     "replace": {},
     "minimum-stability": "stable",
