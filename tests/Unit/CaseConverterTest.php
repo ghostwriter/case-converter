@@ -13,6 +13,10 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(CaseConverter::class)]
 final class CaseConverterTest extends TestCase
 {
+    private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
+
+    private const string CAMEL_CASE = 'theQuickBrownFoxJumpsOverTheLazyDog';
+
     private const array CASES = [
         self::ADA_CASE,
         self::CAMEL_CASE,
@@ -27,13 +31,8 @@ final class CaseConverterTest extends TestCase
         self::TITLE_CASE,
         self::TRAIN_CASE,
         self::UPPER_CASE,
+        self::THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG,
     ];
-
-    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The quick brown fox jumps over the lazy dog';
-
-    private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
-
-    private const string CAMEL_CASE = 'theQuickBrownFoxJumpsOverTheLazyDog';
 
     private const string COBOL_CASE = 'THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG';
 
@@ -50,6 +49,8 @@ final class CaseConverterTest extends TestCase
     private const string SENTENCE_CASE = 'The quick brown fox jumps over the lazy dog';
 
     private const string SNAKE_CASE = 'the_quick_brown_fox_jumps_over_the_lazy_dog';
+
+    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The! quick, brown# fox _jumps *over the lazy dog.';
 
     private const string TITLE_CASE = 'The Quick Brown Fox Jumps Over The Lazy Dog';
 
