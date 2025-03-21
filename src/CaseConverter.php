@@ -20,6 +20,7 @@ use function implode;
 use function lcfirst;
 use function mb_convert_case;
 use function preg_match;
+use function preg_replace;
 use function preg_split;
 use function str_contains;
 use function ucfirst;
@@ -61,7 +62,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toAdaCase(string $string): string
     {
-        return $this->glueUnderscore($this->split($string), $this->title);
+        return $this->glueUnderscore($this->split($this->normalize($string)), $this->title);
     }
 
     /**
@@ -72,7 +73,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toCamelCase(string $string): string
     {
-        return lcfirst($this->glueUppercase($this->split($string), $this->title));
+        return lcfirst($this->glueUppercase($this->split($this->normalize($string)), $this->title));
     }
 
     /**
@@ -83,7 +84,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toCobolCase(string $string): string
     {
-        return $this->glueDash($this->split($string), $this->upper);
+        return $this->glueDash($this->split($this->normalize($string)), $this->upper);
     }
 
     /**
@@ -94,7 +95,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toDotCase(string $string): string
     {
-        return $this->glueDot($this->split($string), $this->lower);
+        return $this->glueDot($this->split($this->normalize($string)), $this->lower);
     }
 
     /**
@@ -105,7 +106,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toKebabCase(string $string): string
     {
-        return $this->glueDash($this->split($string), $this->lower);
+        return $this->glueDash($this->split($this->normalize($string)), $this->lower);
     }
 
     /**
@@ -116,7 +117,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toLowerCase(string $string): string
     {
-        return $this->glueSpace($this->split($string), $this->lower);
+        return $this->glueSpace($this->split($this->normalize($string)), $this->lower);
     }
 
     /**
@@ -127,7 +128,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toMacroCase(string $string): string
     {
-        return $this->glueUnderscore($this->split($string), $this->upper);
+        return $this->glueUnderscore($this->split($this->normalize($string)), $this->upper);
     }
 
     /**
@@ -138,7 +139,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toPascalCase(string $string): string
     {
-        return $this->glueUppercase($this->split($string), $this->title);
+        return $this->glueUppercase($this->split($this->normalize($string)), $this->title);
     }
 
     /**
@@ -149,7 +150,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toSentenceCase(string $string): string
     {
-        return ucfirst($this->glueSpace($this->split($string), $this->lower));
+        return ucfirst($this->glueSpace($this->split($this->normalize($string)), $this->lower));
     }
 
     /**
@@ -160,7 +161,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toSnakeCase(string $string): string
     {
-        return $this->glueUnderscore($this->split($string), $this->lower);
+        return $this->glueUnderscore($this->split($this->normalize($string)), $this->lower);
     }
 
     /**
@@ -171,7 +172,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toTitleCase(string $string): string
     {
-        return $this->glueSpace($this->split($string), $this->title);
+        return $this->glueSpace($this->split($this->normalize($string)), $this->title);
     }
 
     /**
@@ -182,7 +183,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toTrainCase(string $string): string
     {
-        return $this->glueDash($this->split($string), $this->title);
+        return $this->glueDash($this->split($this->normalize($string)), $this->title);
     }
 
     /**
@@ -193,7 +194,7 @@ final readonly class CaseConverter implements CaseConverterInterface
     #[Override]
     public function toUpperCase(string $string): string
     {
-        return $this->glueSpace($this->split($string), $this->upper);
+        return $this->glueSpace($this->split($this->normalize($string)), $this->upper);
     }
 
     /**
@@ -263,6 +264,11 @@ final readonly class CaseConverter implements CaseConverterInterface
         return array_map($converter, $words);
     }
 
+    private function normalize(string $string): string
+    {
+        return preg_replace('#[^a-z0-9]+#iu', '_', $string);
+    }
+
     /**
      * @throws FailedToSplitStringException
      *
@@ -307,7 +313,7 @@ final readonly class CaseConverter implements CaseConverterInterface
      */
     private function splitSpace(string $string): array
     {
-        return $this->words($string, '# +#u');
+        return $this->words($string, '#\s+#u');
     }
 
     /**
