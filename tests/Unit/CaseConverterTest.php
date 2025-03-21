@@ -35,6 +35,7 @@ final class CaseConverterTest extends TestCase
         self::TITLE_CASE,
         self::TRAIN_CASE,
         self::UPPER_CASE,
+        self::THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG,
     ];
 
     private const string COBOL_CASE = 'THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG';
@@ -53,7 +54,7 @@ final class CaseConverterTest extends TestCase
 
     private const string SNAKE_CASE = 'the_quick_brown_fox_jumps_over_the_lazy_dog';
 
-    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The quick brown fox jumps over the lazy dog';
+    private const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The! quick, brown# fox _jumps *over the lazy dog.';
 
     private const string TITLE_CASE = 'The Quick Brown Fox Jumps Over The Lazy Dog';
 
