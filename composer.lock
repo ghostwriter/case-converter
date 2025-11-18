@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc145e553c4f85ecb32fa7c97ba630f5",
+    "content-hash": "1705700ffc2bb46f3ac457d8a14e80d6",
     "packages": [],
     "packages-dev": [
         {
@@ -790,29 +790,40 @@
         },
         {
             "name": "ghostwriter/container",
-            "version": "5.0.1",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/container.git",
-                "reference": "e77a71185922b5a67a0219de6acce2d5be8496f2"
+                "reference": "bcfb2a1e2cbff14df8d6f3fb9cc12a4c3bb369d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/container/zipball/e77a71185922b5a67a0219de6acce2d5be8496f2",
-                "reference": "e77a71185922b5a67a0219de6acce2d5be8496f2",
+                "url": "https://api.github.com/repos/ghostwriter/container/zipball/bcfb2a1e2cbff14df8d6f3fb9cc12a4c3bb369d4",
+                "reference": "bcfb2a1e2cbff14df8d6f3fb9cc12a4c3bb369d4",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.4"
+                "php": "~8.4.0 || ~8.5.0",
+                "psr/container": "^2.0.2"
             },
             "provide": {
                 "psr/container-implementation": "*"
             },
             "require-dev": {
+                "ext-xdebug": "*",
                 "ghostwriter/coding-standard": "dev-main",
-                "psr/container": "^1.1 || ^2.0"
+                "mockery/mockery": "^1.6.12",
+                "phpunit/phpunit": "^12.4.3",
+                "symfony/var-dumper": "^7.3.5"
             },
             "type": "library",
+            "extra": {
+                "ghostwriter": {
+                    "container": {
+                        "definition": "Ghostwriter\\Container\\Service\\Definition\\ContainerDefinition"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Ghostwriter\\Container\\": "src/"
@@ -848,7 +859,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-18T19:43:29+00:00"
+            "time": "2025-11-18T05:56:22+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
