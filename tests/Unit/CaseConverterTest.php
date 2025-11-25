@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use Generator;
 use Ghostwriter\CaseConverter\CaseConverter;
-use Ghostwriter\CaseConverter\Container\CaseConverterServiceProvider;
+use Ghostwriter\CaseConverter\Container\CaseConverterDefinition;
+use Ghostwriter\CaseConverter\Container\CaseConverterFactory;
 use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
 use Ghostwriter\Container\Container;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(CaseConverter::class)]
-#[CoversClass(CaseConverterServiceProvider::class)]
+#[UsesClass(CaseConverterDefinition::class)]
+#[UsesClass(CaseConverterFactory::class)]
 final class CaseConverterTest extends TestCase
 {
     private const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
@@ -69,14 +71,13 @@ final class CaseConverterTest extends TestCase
         parent::setUp();
 
         $this->container = Container::getInstance();
-        $this->container->provide(CaseConverterServiceProvider::class);
         $this->caseConverter = $this->container->get(CaseConverterInterface::class);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        $this->container->clear(); // Clear the container to avoid side effects between tests
+        $this->container->reset(); // Clear the container to avoid side effects between tests
     }
 
     #[DataProvider('dataProviderFrom')]
@@ -157,7 +158,7 @@ final class CaseConverterTest extends TestCase
         self::assertSame(self::UPPER_CASE, $this->caseConverter->toUpperCase($string));
     }
 
-    public static function dataProviderFrom(): Generator
+    public static function dataProviderFrom(): iterable
     {
         foreach (self::CASES as $case) {
             yield 'From ' . $case => [$case];
