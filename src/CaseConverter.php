@@ -27,19 +27,13 @@ use function ucfirst;
 
 final readonly class CaseConverter implements CaseConverterInterface
 {
-    /**
-     * @var Closure(string):string
-     */
+    /** @var Closure(string):string */
     private Closure $lower;
 
-    /**
-     * @var Closure(string):string
-     */
+    /** @var Closure(string):string */
     private Closure $title;
 
-    /**
-     * @var Closure(string):string
-     */
+    /** @var Closure(string):string */
     private Closure $upper;
 
     public function __construct()
