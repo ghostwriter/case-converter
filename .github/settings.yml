@@ -1,10 +1,4 @@
 "milestones":
-  - "title": "2.1.1"
-    "description": "Patch release – targeting 2.1.x branch (semantic version: 2.1.1)"
-    "state": "closed"
-  - "title": "2.2.0"
-    "description": "Minor release – targeting 2.2.x branch (semantic version: 2.2.0)"
-    "state": "closed"
   - "title": "3.0.0"
     "description": "Major release – targeting 3.0.x branch (semantic version: 3.0.0)"
     "state": "open"
@@ -14,6 +8,9 @@
   - "title": "2.2.1"
     "description": "Patch release – targeting 2.2.x branch (semantic version: 2.2.1)"
     "state": "open"
+  - "title": "2.2.0"
+    "description": "Minor release – targeting 2.2.x branch (semantic version: 2.2.0)"
+    "state": "closed"
 "repository":
   "name": "case-converter"
   "description": "Convert strings from and to AdaCase, CamelCase, CobolCase, KebabCase, Lowercase, MacroCase, PascalCase, SentenceCase, SnakeCase, TitleCase, TrainCase, and Uppercase"
