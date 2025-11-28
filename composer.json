@@ -100,8 +100,8 @@
             }
         },
         "thanks": {
-            "url": "https://github.com/ghostwriter/case-converter",
-            "name": "ghostwriter/case-converter"
+            "name": "ghostwriter/case-converter",
+            "url": "https://github.com/ghostwriter/case-converter"
         }
     },
     "scripts": {
