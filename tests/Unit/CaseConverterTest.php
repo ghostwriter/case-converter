@@ -9,6 +9,7 @@ use Ghostwriter\CaseConverter\Container\CaseConverterDefinition;
 use Ghostwriter\CaseConverter\Container\CaseConverterFactory;
 use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
 use Ghostwriter\Container\Container;
+use Ghostwriter\Container\Interface\ContainerInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\UsesClass;
@@ -65,6 +66,8 @@ final class CaseConverterTest extends TestCase
     private const string UPPER_CASE = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG';
 
     private CaseConverter $caseConverter;
+
+    private ContainerInterface $container;
 
     protected function setUp(): void
     {
