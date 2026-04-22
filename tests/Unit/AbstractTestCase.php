@@ -12,6 +12,8 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
+    public const array EMPTY_INPUTS = ['___', '---', '...', '   '];
+
     protected const string ADA_CASE = 'The_Quick_Brown_Fox_Jumps_Over_The_Lazy_Dog';
 
     protected const string CAMEL_CASE = 'theQuickBrownFoxJumpsOverTheLazyDog';
@@ -52,6 +54,48 @@ abstract class AbstractTestCase extends TestCase
     protected const string THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = 'The! quick, brown# fox _jumps *over the lazy dog.';
 
     protected const string TITLE_CASE = 'The Quick Brown Fox Jumps Over The Lazy Dog';
+
+    protected const string TO_ADA_METHOD = 'toAdaCase';
+
+    protected const string TO_CAMEL_METHOD = 'toCamelCase';
+
+    protected const string TO_COBOL_METHOD = 'toCobolCase';
+
+    protected const string TO_DOT_METHOD = 'toDotCase';
+
+    protected const string TO_KEBAB_METHOD = 'toKebabCase';
+
+    protected const string TO_LOWER_METHOD = 'toLowerCase';
+
+    protected const string TO_MACRO_METHOD = 'toMacroCase';
+
+    protected const array TO_METHODS = [
+        self::TO_ADA_METHOD,
+        self::TO_CAMEL_METHOD,
+        self::TO_COBOL_METHOD,
+        self::TO_DOT_METHOD,
+        self::TO_KEBAB_METHOD,
+        self::TO_LOWER_METHOD,
+        self::TO_MACRO_METHOD,
+        self::TO_PASCAL_METHOD,
+        self::TO_SENTENCE_METHOD,
+        self::TO_SNAKE_METHOD,
+        self::TO_TITLE_METHOD,
+        self::TO_TRAIN_METHOD,
+        self::TO_UPPER_METHOD,
+    ];
+
+    protected const string TO_PASCAL_METHOD = 'toPascalCase';
+
+    protected const string TO_SENTENCE_METHOD = 'toSentenceCase';
+
+    protected const string TO_SNAKE_METHOD = 'toSnakeCase';
+
+    protected const string TO_TITLE_METHOD = 'toTitleCase';
+
+    protected const string TO_TRAIN_METHOD = 'toTrainCase';
+
+    protected const string TO_UPPER_METHOD = 'toUpperCase';
 
     protected const string TRAIN_CASE = 'The-Quick-Brown-Fox-Jumps-Over-The-Lazy-Dog';
 
