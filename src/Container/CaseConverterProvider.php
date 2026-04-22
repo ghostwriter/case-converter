@@ -6,21 +6,29 @@ namespace Ghostwriter\CaseConverter\Container;
 
 use Ghostwriter\CaseConverter\CaseConverter;
 use Ghostwriter\CaseConverter\Interface\CaseConverterInterface;
-use Ghostwriter\Container\Interface\BuilderInterface;
+use Ghostwriter\Container\Interface\Service\FactoryInterface;
 use Ghostwriter\Container\Service\Provider\AbstractProvider;
-use Override;
-use Throwable;
 
 /**
  * @see CaseConverterProviderTest
  */
 final class CaseConverterProvider extends AbstractProvider
 {
-    /** @throws Throwable */
-    #[Override]
-    public function register(BuilderInterface $builder): void
-    {
-        $builder->alias(CaseConverterInterface::class, CaseConverter::class);
-        $builder->factory(CaseConverter::class, CaseConverterFactory::class);
-    }
+    /**
+     * alias => service.
+     *
+     * @var array<class-string,class-string>
+     */
+    public const array ALIAS = [
+        CaseConverterInterface::class => CaseConverter::class,
+    ];
+
+    /**
+     * service => factory.
+     *
+     * @var array<class-string,class-string<FactoryInterface>>
+     */
+    public const array FACTORY = [
+        CaseConverter::class => CaseConverterFactory::class,
+    ];
 }

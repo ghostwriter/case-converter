@@ -4,100 +4,105 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
+use Generator;
 use Ghostwriter\CaseConverter\CaseConverter;
 use Ghostwriter\CaseConverter\Container\CaseConverterFactory;
 use Ghostwriter\CaseConverter\Container\CaseConverterProvider;
+use LogicException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\UsesClass;
+
+use function hash;
+use function sprintf;
 
 #[CoversClass(CaseConverter::class)]
-#[UsesClass(CaseConverterFactory::class)]
-#[UsesClass(CaseConverterProvider::class)]
+#[CoversClass(CaseConverterFactory::class)]
+#[CoversClass(CaseConverterProvider::class)]
 final class CaseConverterTest extends AbstractTestCase
 {
-    #[DataProvider('dataProviderFrom')]
-    public function testToAdaCase(string $string): void
+    #[DataProvider('dataProviderEmptyInputs')]
+    #[DataProvider('dataProviderMatrix')]
+    #[DataProvider('dataProviderSingleWordConversions')]
+    #[DataProvider('dataProviderSingleWordUppercaseConversions')]
+    public function testMatrix(string $input, string $method, string $expected): void
     {
-        self::assertSame(self::ADA_CASE, $this->caseConverter->toAdaCase($string));
+        self::assertSame($expected, $this->caseConverter->{$method}($input));
     }
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToCamelCase(string $string): void
+    public function testStaticNewMethod(): void
     {
-        self::assertSame(self::CAMEL_CASE, $this->caseConverter->toCamelCase($string));
+        self::assertInstanceOf(CaseConverter::class, CaseConverter::new());
     }
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToCobolCase(string $string): void
+    /** @return Generator<string, array{string, string, string}> */
+    public static function dataProviderEmptyInputs(): iterable
     {
-        self::assertSame(self::COBOL_CASE, $this->caseConverter->toCobolCase($string));
+        foreach (self::EMPTY_INPUTS as $input) {
+            foreach (self::TO_METHODS as $method) {
+                yield sprintf('%s-with-%s', $method, hash('crc32', $input)) => [$input, $method, ''];
+            }
+        }
     }
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToDotCase(string $string): void
+    /** @return Generator<string, array{string, string, string}> */
+    public static function dataProviderMatrix(): iterable
     {
-        self::assertSame(self::DOT_CASE, $this->caseConverter->toDotCase($string));
+        foreach (self::CASES as $input) {
+            foreach (self::TO_METHODS as $method) {
+                $expected = match ($method) {
+                    self::TO_ADA_METHOD => self::ADA_CASE,
+                    self::TO_CAMEL_METHOD => self::CAMEL_CASE,
+                    self::TO_COBOL_METHOD => self::COBOL_CASE,
+                    self::TO_DOT_METHOD => self::DOT_CASE,
+                    self::TO_KEBAB_METHOD => self::KEBAB_CASE,
+                    self::TO_LOWER_METHOD => self::LOWER_CASE,
+                    self::TO_MACRO_METHOD => self::MACRO_CASE,
+                    self::TO_PASCAL_METHOD => self::PASCAL_CASE,
+                    self::TO_SENTENCE_METHOD => self::SENTENCE_CASE,
+                    self::TO_SNAKE_METHOD => self::SNAKE_CASE,
+                    self::TO_TITLE_METHOD => self::TITLE_CASE,
+                    self::TO_TRAIN_METHOD => self::TRAIN_CASE,
+                    self::TO_UPPER_METHOD => self::UPPER_CASE,
+                    default => throw new LogicException('Unknown method: ' . $method)
+                };
+
+                yield sprintf('From "%s" ->%s "%s"', $input, $method, $expected) => [$input, $method, $expected];
+            }
+        }
     }
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToKebabCase(string $string): void
+    /** @return Generator<string, array{string, string, string}> */
+    public static function dataProviderSingleWordConversions(): iterable
     {
-        self::assertSame(self::KEBAB_CASE, $this->caseConverter->toKebabCase($string));
+        // Single word conversions
+        $input = 'hello';
+
+        foreach (self::TO_METHODS as $method) {
+            $expected = match ($method) {
+                self::TO_ADA_METHOD, self::TO_TRAIN_METHOD, self::TO_TITLE_METHOD, self::TO_SENTENCE_METHOD, self::TO_PASCAL_METHOD => 'Hello',
+                self::TO_CAMEL_METHOD, self::TO_SNAKE_METHOD, self::TO_LOWER_METHOD, self::TO_KEBAB_METHOD, self::TO_DOT_METHOD => 'hello',
+                self::TO_COBOL_METHOD, self::TO_UPPER_METHOD, self::TO_MACRO_METHOD => 'HELLO',
+                default => throw new LogicException('Unknown method: ' . $method)
+            };
+
+            yield sprintf('%s-with-%s', $method, hash('crc32', $input)) => [$input, $method, $expected];
+        }
     }
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToLowerCase(string $string): void
+    /** @return Generator<string, array{string, string, string}> */
+    public static function dataProviderSingleWordUppercaseConversions(): iterable
     {
-        self::assertSame(self::LOWER_CASE, $this->caseConverter->toLowerCase($string));
-    }
+        $input = 'HELLO';
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToMacroCase(string $string): void
-    {
-        self::assertSame(self::MACRO_CASE, $this->caseConverter->toMacroCase($string));
-    }
+        foreach (self::TO_METHODS as $method) {
+            $expected = match ($method) {
+                self::TO_ADA_METHOD, self::TO_TRAIN_METHOD, self::TO_TITLE_METHOD, self::TO_SENTENCE_METHOD, self::TO_PASCAL_METHOD => 'Hello',
+                self::TO_CAMEL_METHOD, self::TO_SNAKE_METHOD, self::TO_LOWER_METHOD, self::TO_KEBAB_METHOD, self::TO_DOT_METHOD => 'hello',
+                self::TO_COBOL_METHOD, self::TO_UPPER_METHOD, self::TO_MACRO_METHOD => 'HELLO',
+                default => throw new LogicException('Unknown method: ' . $method)
+            };
 
-    #[DataProvider('dataProviderFrom')]
-    public function testToPascalCase(string $string): void
-    {
-        self::assertSame(self::PASCAL_CASE, $this->caseConverter->toPascalCase($string));
-    }
-
-    #[DataProvider('dataProviderFrom')]
-    public function testToSentenceCase(string $string): void
-    {
-        self::assertSame(self::SENTENCE_CASE, $this->caseConverter->toSentenceCase($string));
-    }
-
-    #[DataProvider('dataProviderFrom')]
-    public function testToSnakeCase(string $string): void
-    {
-        self::assertSame(self::SNAKE_CASE, $this->caseConverter->toSnakeCase($string));
-    }
-
-    #[DataProvider('dataProviderFrom')]
-    public function testToTitleCase(string $string): void
-    {
-        self::assertSame(self::TITLE_CASE, $this->caseConverter->toTitleCase($string));
-    }
-
-    #[DataProvider('dataProviderFrom')]
-    public function testToTrainCase(string $string): void
-    {
-        self::assertSame(self::TRAIN_CASE, $this->caseConverter->toTrainCase($string));
-    }
-
-    #[DataProvider('dataProviderFrom')]
-    public function testToUpperCase(string $string): void
-    {
-        self::assertSame(self::UPPER_CASE, $this->caseConverter->toUpperCase($string));
-    }
-
-    public static function dataProviderFrom(): iterable
-    {
-        foreach (self::CASES as $case) {
-            yield 'From ' . $case => [$case];
+            yield sprintf('%s-with-%s', $method, hash('crc32', $input)) => [$input, $method, $expected];
         }
     }
 }
