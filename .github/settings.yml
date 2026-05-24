@@ -29,22 +29,6 @@
 "repository":
   "name": "case-converter"
   "description": "Convert strings from and to AdaCase, CamelCase, CobolCase, KebabCase, Lowercase, MacroCase, PascalCase, SentenceCase, SnakeCase, TitleCase, TrainCase, and Uppercase"
-  "topics":
-    - "ghostwriter"
-    - "case-converter"
-    - "php"
-    - "ada-case"
-    - "camel-case"
-    - "cobol-case"
-    - "kebab-case"
-    - "lower-case"
-    - "macro-case"
-    - "pascal-case"
-    - "sentence-case"
-    - "snake-case"
-    - "title-case"
-    - "train-case"
-    - "upper-case"
   "homepage": "https://github.com/ghostwriter/case-converter"
   "default_branch": "2.2.x"
   "allow_auto_merge": true
