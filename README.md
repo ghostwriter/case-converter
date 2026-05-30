@@ -1,9 +1,10 @@
 # Case Converter
 
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Automation](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/case-converter/actions/workflows/automation.yml)
-[![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/case-converter?color=8892bf)](https://www.php.net/supported-versions)
-[![Downloads](https://badgen.net/packagist/dt/ghostwriter/case-converter?color=blue)](https://packagist.org/packages/ghostwriter/case-converter)
+[![PHP Version](https://badgen.net/packagist/php/ghostwriter/case-converter?color=777BB4)](https://www.php.net/supported-versions)
+[![Packagist Downloads](https://badgen.net/packagist/dt/ghostwriter/case-converter?color=F28D1A)](https://packagist.org/packages/ghostwriter/case-converter)
+[![PayPal](https://img.shields.io/badge/paypal-@codepoet-0079C1?logo=paypal&logoColor=002991)](https://paypal.me/codepoet)
+[![Sponsors via GitHub](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/case-converter&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 
 Convert strings from and to `AdaCase`, `CamelCase`, `CobolCase`, `KebabCase`, `Lowercase`, `MacroCase`, `PascalCase`, `SentenceCase`, `SnakeCase`, `TitleCase`, `TrainCase`, and `Uppercase`.
 
